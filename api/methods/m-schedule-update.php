@@ -13,24 +13,24 @@ $app->get($route, function ()  use ($app){
   $JSONSchedule = json_decode($File);
   foreach($JSONSchedule as $Entry)
     {
-    $time = $Entry['time'];
-    $title = $Entry['title'];
-    $location = $Entry['location'];
-    $speakers = $Entry['speakers'];
+    $time = $Entry->time;
+    $title = $Entry->title;
+    $location = $Entry->location;
+    $speakers = $Entry->speakers;
 
     echo $title . "<br />";
     foreach($speakers as $speaker)
       {
-      $speaker_name = $speaker['name'];
-      $speaker_company = $speaker['company'];
-      $speaker_url = $speaker['url'];
-      $speaker_twitter = $speaker['twitter'];
-      $speaker_image = $speaker['image'];
-      $speaker_slug = $speaker['slug'];
-      $speaker_detail = $speaker['detail'];
-      $speaker_title = $speaker['title'];
-      $speaker_abstract = $speaker['abstract'];
-      $speaker_bio = $speaker['bio'];
+      $speaker_name = $speaker->name;
+      $speaker_company = $speaker->company;
+      $speaker_url = $speaker->url;
+      $speaker_twitter = $speaker->twitter;
+      $speaker_image = $speaker->image;
+      $speaker_slug = $speaker->slug;
+      $speaker_detail = $speaker->detail;
+      $speaker_title = $speaker->title;
+      $speaker_abstract = $speaker->abstract;
+      $speaker_bio = $speaker->bio;
 
       echo $speaker_title . "<br />";
       }

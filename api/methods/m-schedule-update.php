@@ -9,7 +9,7 @@ $app->get($route, function ()  use ($app){
  	$params = $request->params();
 
   $Day = "11/18/2015";
-  $File = file_get_contents("http://austin2015.apistrat.com/schedule/daythree.json");
+  $File = file_get_contents("http://austin2015.apistrat.com/schedule/dayone.json");
   //echo $File;
   $JSONSchedule = json_decode($File);
   foreach($JSONSchedule as $Entry)
@@ -145,7 +145,7 @@ $app->get($route, function ()  use ($app){
     }
 
   $Day = "11/19/2015";
-  $File = file_get_contents("http://austin2015.apistrat.com/schedule/daythree.json");
+  $File = file_get_contents("http://austin2015.apistrat.com/schedule/daytwo.json");
   //echo $File;
   $JSONSchedule = json_decode($File);
   foreach($JSONSchedule as $Entry)

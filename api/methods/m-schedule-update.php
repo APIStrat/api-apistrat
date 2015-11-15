@@ -8,8 +8,8 @@ $app->get($route, function ()  use ($app){
  	$request = $app->request();
  	$params = $request->params();
 
-  $File = fopen("http://austin2015.apistrat.com/schedule/daytwo.json", "r");
-  echo $File;
+  $File = file_get_contents("http://austin2015.apistrat.com/schedule/daytwo.json");
+  //echo $File;
   $JSONSchedule = json_encode($File);
 
   //$ReturnObject['updated'] = 1;

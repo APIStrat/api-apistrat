@@ -63,7 +63,7 @@ $app->get($route, function ()  use ($app){
       $speaker_bio = $speaker->bio;
 
       $LinkQuery = "SELECT * FROM speakers WHERE name = '" . $speaker_name . "'";
-  		//echo $LinkQuery . "<br />";
+  		echo $LinkQuery . "<br />";
   		$LinkResult = mysql_query($LinkQuery) or die('Query failed: ' . mysql_error());
 
   		if($LinkResult && mysql_num_rows($LinkResult))
@@ -74,7 +74,7 @@ $app->get($route, function ()  use ($app){
   		else
   			{
   			$query = "INSERT INTO speakers(name,company,url,twitter,image,slug,detail,title,abstract,bio) VALUES('" . mysql_real_escape_string($speaker_name) . "','" . mysql_real_escape_string($speaker_company) . "','" . mysql_real_escape_string($speaker_url) . "','" . mysql_real_escape_string($speaker_twitter) . "','" . mysql_real_escape_string($speaker_image) . "','" . mysql_real_escape_string($speaker_slug) . "','" . mysql_real_escape_string($speaker_detail) . "','" . mysql_real_escape_string($speaker_title) . "','" . mysql_real_escape_string($speaker_abstract) . "','" . mysql_real_escape_string($speaker_bio) . "')";
-  			//echo $query . "<br />";
+  			echo $query . "<br />";
   			mysql_query($query) or die('Query failed: ' . mysql_error());
         $speaker_id = mysql_insert_id();
   			}

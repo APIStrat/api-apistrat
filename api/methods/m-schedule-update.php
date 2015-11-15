@@ -9,9 +9,9 @@ $app->get($route, function ()  use ($app){
  	$params = $request->params();
 
   $File = file_get_contents("http://austin2015.apistrat.com/schedule/daytwo.json");
-  echo $File;
+  //echo $File;
   $JSONSchedule = json_decode($File);
-
+  var_dump($JSONSchedule);
   //$ReturnObject['updated'] = 1;
   $ReturnObject = $JSONSchedule;
 

@@ -62,7 +62,7 @@ $app->get($route, function ()  use ($app){
       $speaker_abstract = $speaker->abstract;
       $speaker_bio = $speaker->bio;
 
-      $LinkQuery = "SELECT * FROM speakers WHERE name = '" . $speaker_name . "'";
+      $LinkQuery = "SELECT * FROM speakers WHERE name = '" . mysql_real_escape_string($speaker_name) . "'";
   		echo $LinkQuery . "<br />";
   		$LinkResult = mysql_query($LinkQuery) or die('Query failed: ' . mysql_error());
 

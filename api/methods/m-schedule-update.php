@@ -16,7 +16,7 @@ $app->get($route, function ()  use ($app){
   $ReturnObject = $JSONSchedule;
 
   $app->response()->header("Content-Type", "application/json");
-  echo format_json(stripslashes(json_encode($ReturnObject)));
+  echo json_encode($ReturnObject);
 
   });
 

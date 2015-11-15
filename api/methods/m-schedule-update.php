@@ -22,10 +22,13 @@ $app->get($route, function ()  use ($app){
     $start_day_time = date('Y-m-d H:i:s A',strtotime($start_day_time));
     echo $start_day_time . "<br />";
 
-    $end_time = $timeArray[1];
-    $end_day_time = $Day . " " . $end_time;
-    $end_day_time = date('Y-m-d H:i:s A',strtotime($end_day_time));
-    echo $end_day_time . "<br />";
+    if(isset($timeArray[1]))
+      {
+        $end_time = "12:00 am";
+        $end_day_time = $Day . " " . $end_time;
+        $end_day_time = date('Y-m-d H:i:s A',strtotime($end_day_time));
+        echo $end_day_time . "<br />";
+      }
 
     $title = $Entry->title;
     $location = $Entry->location;

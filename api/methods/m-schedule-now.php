@@ -14,8 +14,8 @@ $app->get($route, function ()  use ($app){
   $Now = "11/" . $day . "/2015 " . $time;
   $Now = date('Y-m-d H:i:s A',strtotime($Now));
 
-  $ScheduleQuery = "SELECT * FROM schedule WHERE " . $Now . " BETWEEN start_time AND end_time";
-  //echo $ScheduleQuery . "<br />";
+  $ScheduleQuery = "SELECT * FROM schedule WHERE '" . $Now . "' BETWEEN start_time AND end_time";
+  echo $ScheduleQuery . "<br />";
   $ScheduleResults = mysql_query($ScheduleQuery) or die('Query failed: ' . mysql_error());
   while ($Schedule = mysql_fetch_assoc($ScheduleResults))
   	{

@@ -27,7 +27,6 @@ $app->get($route, function ()  use ($app){
     $schedule_end_time = $Schedule['end_time'];
 
     $F = array();
-		$F['schedule_id'] = $schedule_id;
     $F['title'] = $schedule_title;
     $F['location'] = $schedule_location;
     $F['start_time'] = $schedule_start_time;

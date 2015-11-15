@@ -1,6 +1,6 @@
 <?php
 
-$route = '/schedule/update/';
+$route = '/schedule/day/two/';
 $app->get($route, function ()  use ($app){
 
   $ReturnObject = array();

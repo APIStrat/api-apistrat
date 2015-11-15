@@ -31,6 +31,23 @@ $app->get($route, function ()  use ($app){
     $location = $Entry->location;
     $speakers = $Entry->speakers;
 
+    $LinkQuery = "SELECT * FROM schedule WHERE location = '" . $location . "' AND start_time = '" . $start_day_time . "' AND end_time = '" . $end_day_time . "'";
+		//echo $LinkQuery . "<br />";
+		$LinkResult = mysql_query($LinkQuery) or die('Query failed: ' . mysql_error());
+
+		if($LinkResult && mysql_num_rows($LinkResult))
+			{
+			$Link = mysql_fetch_assoc($LinkResult);
+      $schedule_id = $Link['schedule_id'];
+			}
+		else
+			{
+			$query = "INSERT INTO schedule(title,location,start_time,end_time) VALUES('" . mysql_real_escape_string($title) . "','" . mysql_real_escape_string($location) . "','" . mysql_real_escape_string($start_day_time) . "','" . mysql_real_escape_string($end_day_time) . "')";
+			//echo $query . "<br />";
+			mysql_query($query) or die('Query failed: ' . mysql_error());
+      $schedule_id = mysql_insert_id();
+			}
+
     echo $title . "<br />";
     foreach($speakers as $speaker)
       {
@@ -44,6 +61,38 @@ $app->get($route, function ()  use ($app){
       $speaker_title = $speaker->title;
       $speaker_abstract = $speaker->abstract;
       $speaker_bio = $speaker->bio;
+
+      $LinkQuery = "SELECT * FROM speakers WHERE name = '" . $speaker_name . "'";
+  		//echo $LinkQuery . "<br />";
+  		$LinkResult = mysql_query($LinkQuery) or die('Query failed: ' . mysql_error());
+
+  		if($LinkResult && mysql_num_rows($LinkResult))
+  			{
+  			$Link = mysql_fetch_assoc($LinkResult);
+        $speaker_id = $Link['speaker_id'];
+  			}
+  		else
+  			{
+  			$query = "INSERT INTO speakers(name,company,url,twitter,image,slug,detail,title,abstract,bio) VALUES('" . mysql_real_escape_string($speaker_name) . "','" . mysql_real_escape_string($speaker_company) . "','" . mysql_real_escape_string($speaker_url) . "','" . mysql_real_escape_string($speaker_twitter) . "','" . mysql_real_escape_string($speaker_image) . "','" . mysql_real_escape_string($speaker_slug) . "','" . mysql_real_escape_string($speaker_detail) . "','" . mysql_real_escape_string($speaker_title) . "','" . mysql_real_escape_string($speaker_abstract) . "','" . mysql_real_escape_string($speaker_bio) . "')";
+  			//echo $query . "<br />";
+  			mysql_query($query) or die('Query failed: ' . mysql_error());
+        $speaker_id = mysql_insert_id();
+  			}
+
+        $LinkQuery = "SELECT * FROM schedule_speakers WHERE schedule_id = " . $speaker_name . " AND speaker_id = " . $speaker_id;
+    		//echo $LinkQuery . "<br />";
+    		$LinkResult = mysql_query($LinkQuery) or die('Query failed: ' . mysql_error());
+
+    		if($LinkResult && mysql_num_rows($LinkResult))
+    			{
+    			$Link = mysql_fetch_assoc($LinkResult);
+    			}
+    		else
+    			{
+    			$query = "INSERT INTO schedule_speakers(schedule_id,speaker_id) VALUES(" . mysql_real_escape_string($schedule_id) . "," . mysql_real_escape_string($speaker_id) . ")";
+    			//echo $query . "<br />";
+    			mysql_query($query) or die('Query failed: ' . mysql_error());
+    			}
 
       echo $speaker_title . "<br />";
       }

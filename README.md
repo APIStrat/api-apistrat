@@ -1,2 +1,4 @@
-# api-apistrat-austin
-This is the api for apistrat austin.
+APIStrat API
+=======
+
+The API for APIStrat Austin

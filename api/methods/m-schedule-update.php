@@ -8,6 +8,7 @@ $app->get($route, function ()  use ($app){
  	$request = $app->request();
  	$params = $request->params();
 
+  $Day = "11/19/2015";
   $File = file_get_contents("http://austin2015.apistrat.com/schedule/daytwo.json");
   //echo $File;
   $JSONSchedule = json_decode($File);
@@ -15,7 +16,17 @@ $app->get($route, function ()  use ($app){
     {
     $time = $Entry->time;
     $timeArray = explode("-",$time);
-    var_dump($timeArray);
+    //var_dump($timeArray);
+    $start_time = $timeArray[0];
+    $start_day_time = $Day . " " . $start_time;
+    $start_day_time = date('Y-m-d H:i:s',strtotime($start_day_time));
+    echo $start_day_time . "<br />";
+
+    $end_time = $timeArray[1];
+    $end_day_time = $Day . " " . $end_time;
+    $end_day_time = date('Y-m-d H:i:s',strtotime($end_day_time));
+    echo $end_day_time . "<br />";
+
     $title = $Entry->title;
     $location = $Entry->location;
     $speakers = $Entry->speakers;

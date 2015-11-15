@@ -8,6 +8,9 @@ require_once('m-schedule-search.php');
 require_once('m-schedule-update.php');
 
 require_once('m-speakers.php');
-require_once('m-sponsors.php');
+
+require_once('m-sponsors-gold.php');
+require_once('m-sponsors-silver.php');
+require_once('m-sponsors-bronze.php');
 
 ?>

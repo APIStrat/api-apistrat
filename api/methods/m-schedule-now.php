@@ -9,7 +9,7 @@ $app->get($route, function ()  use ($app){
  	$params = $request->params();
 
   if(isset($params['day'])){ $day = trim(mysql_real_escape_string($params['day'])); } else { $day = 19; }
-  if(isset($params['time'])){ $time = trim(mysql_real_escape_string($params['time'])); } else { $time = "10:30 am"; }
+  if(isset($params['time'])){ $time = trim(mysql_real_escape_string($params['time'])); } else { $time = "10:20 am"; }
 
   $Now = "11/" . $day . "/2015 " . $time;
   $Now = date('Y-m-d H:i:s A',strtotime($Now));

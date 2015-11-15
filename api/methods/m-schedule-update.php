@@ -14,6 +14,8 @@ $app->get($route, function ()  use ($app){
   foreach($JSONSchedule as $Entry)
     {
     $time = $Entry->time;
+    $timeArray = explode("-",$time);
+    var_dump($timeArray);
     $title = $Entry->title;
     $location = $Entry->location;
     $speakers = $Entry->speakers;
@@ -37,7 +39,8 @@ $app->get($route, function ()  use ($app){
     }
   $ReturnObject = $JSONSchedule;
 
-  $app->response()->header("Content-Type", "application/json");
+  //$app->response()->header("Content-Type", "application/json");
+
   echo stripslashes(json_encode($ReturnObject));
 
   });

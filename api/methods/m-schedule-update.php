@@ -19,12 +19,12 @@ $app->get($route, function ()  use ($app){
     //var_dump($timeArray);
     $start_time = $timeArray[0];
     $start_day_time = $Day . " " . $start_time;
-    $start_day_time = date('Y-m-d H:i:s',strtotime($start_day_time));
+    $start_day_time = date('Y-m-d H:i:s A',strtotime($start_day_time));
     echo $start_day_time . "<br />";
 
     $end_time = $timeArray[1];
     $end_day_time = $Day . " " . $end_time;
-    $end_day_time = date('Y-m-d H:i:s',strtotime($end_day_time));
+    $end_day_time = date('Y-m-d H:i:s A',strtotime($end_day_time));
     echo $end_day_time . "<br />";
 
     $title = $Entry->title;

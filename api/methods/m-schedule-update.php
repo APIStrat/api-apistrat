@@ -16,7 +16,7 @@ $app->get($route, function ()  use ($app){
     {
     $time = $Entry->time;
     $timeArray = explode("-",$time);
-    //var_dump($timeArray);
+    var_dump($timeArray);
     $start_time = $timeArray[0];
     $start_day_time = $Day . " " . $start_time;
     $start_day_time = date('Y-m-d H:i:s A',strtotime($start_day_time));

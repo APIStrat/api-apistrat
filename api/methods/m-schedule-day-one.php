@@ -10,7 +10,7 @@ $app->get($route, function ()  use ($app){
 
   $File = file_get_contents("http://austin2015.apistrat.com/schedule/dayone.json");
 
-  $ReturnObject = $JSONSchedule;
+  $ReturnObject = $File;
 
   //$ReturnObject['updated'] = 1;
   $app->response()->header("Content-Type", "application/json");

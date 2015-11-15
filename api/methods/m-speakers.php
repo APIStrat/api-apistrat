@@ -8,7 +8,7 @@ $app->get($route, function ()  use ($app){
  	$request = $app->request();
  	$params = $request->params();
 
-  $File = file_get_contents("http://austin2015.apistrat.com/schedu.json");
+  $File = file_get_contents("http://austin2015.apistrat.com/speakers/speakers.json");
 
   $ReturnObject = $File;
 

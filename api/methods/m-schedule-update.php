@@ -79,7 +79,7 @@ $app->get($route, function ()  use ($app){
         $speaker_id = mysql_insert_id();
   			}
 
-        $LinkQuery = "SELECT * FROM schedule_speakers WHERE schedule_id = " . $speaker_name . " AND speaker_id = " . $speaker_id;
+        $LinkQuery = "SELECT * FROM schedule_speakers WHERE schedule_id = " . $schedule_id . " AND speaker_id = " . $speaker_id;
     		//echo $LinkQuery . "<br />";
     		$LinkResult = mysql_query($LinkQuery) or die('Query failed: ' . mysql_error());
 

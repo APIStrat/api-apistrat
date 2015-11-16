@@ -11,7 +11,7 @@ $app->get($route, function ()  use ($app){
   if(isset($params['query'])){ $query = trim(mysql_real_escape_string($params['query'])); } else { $query = ''; }
 
     $F['speakers'] = array();
-    $SpeakerQuery = "SELECT * FROM speakers s WHERE title name '%" . $query . "%' OR company LIKE '%" . $query . "%'";
+    $SpeakerQuery = "SELECT * FROM speakers s WHERE name '%" . $query . "%' OR company LIKE '%" . $query . "%'";
     //echo $SpeakerQuery . "<br />";
     $SpeakerResults = mysql_query($SpeakerQuery) or die('Query failed: ' . mysql_error());
     while ($Speaker = mysql_fetch_assoc($SpeakerResults))

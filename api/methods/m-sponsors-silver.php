@@ -1,6 +1,6 @@
 <?php
 
-$route = '/sponsors/gold/';
+$route = '/sponsors/silver/';
 $app->get($route, function ()  use ($app){
 
   $ReturnObject = array();

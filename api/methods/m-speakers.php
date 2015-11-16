@@ -39,7 +39,7 @@ $app->get($route, function ()  use ($app){
       $S['bio'] = $speaker_bio;
       $S['sessions'] = array();
 
-      $ScheduleQuery = "SELECT * FROM schedule s INNER JOIN schedule_speakers ss ON s.schedule_id = ss.schedule_id WHERE ss.speaker_id = " . $speaker_id;
+      $ScheduleQuery = "SELECT DISTINCT *  FROM schedule s INNER JOIN schedule_speakers ss ON s.schedule_id = ss.schedule_id WHERE ss.speaker_id = " . $speaker_id;
       //echo $ScheduleQuery . "<br />";
       $ScheduleResults = mysql_query($ScheduleQuery) or die('Query failed: ' . mysql_error());
       while ($Schedule = mysql_fetch_assoc($ScheduleResults))

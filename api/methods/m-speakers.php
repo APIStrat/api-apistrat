@@ -29,7 +29,6 @@ $app->get($route, function ()  use ($app){
       $speaker_bio = $Speaker['bio'];
 
       $S = array();
-  		$S['speaker_id'] = $speaker_id;
       $S['name'] = $speaker_name;
       $S['company'] = $speaker_company;
       $S['url'] = $speaker_url;
@@ -53,7 +52,6 @@ $app->get($route, function ()  use ($app){
         $schedule_end_time = $Schedule['end_time'];
 
         $F = array();
-    		$F['schedule_id'] = $schedule_id;
         $F['title'] = $schedule_title;
         $F['location'] = $schedule_location;
         $F['start_time'] = $schedule_start_time;

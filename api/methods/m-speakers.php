@@ -12,7 +12,7 @@ $app->get($route, function ()  use ($app){
 
     $F['speakers'] = array();
     $SpeakerQuery = "SELECT * FROM speakers s WHERE name '%" . $query . "%' OR company LIKE '%" . $query . "%'";
-    //echo $SpeakerQuery . "<br />";
+    echo $SpeakerQuery . "<br />";
     $SpeakerResults = mysql_query($SpeakerQuery) or die('Query failed: ' . mysql_error());
     while ($Speaker = mysql_fetch_assoc($SpeakerResults))
     	{
